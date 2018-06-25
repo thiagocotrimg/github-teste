@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="estilo.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Treinando VueJs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
+   
 
+</head>
+<body>
+    <div id="app">
+        <h1 style="text-align: center">{{ titulo }}</h1>
+        <div>
+            <form action="ativa.html">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email"  v-model="email"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">Your e-mail address is safe with us </small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" v-model="password"class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1"  checked>
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary" v-on:click="enviar()">Submit</button>
+              </form>
+        </div>
+        
+        <ul style="list-style: none;">
+            <li v-for="(todos, index) in afazeres">{{index}} - {{ todos.nome }}</li>
+        </ul>
+
+        <br><br>
+        {{ email }}
+        {{ password}}
+        
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        Vue.component('menuds', {
+            template:"<h1>Ola mundo</h1>"
+        });
+
+        Vue.component('sidebar',{
+            template: "#sidebar"
+        })
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+                titulo:"Vue Js jeito ninja",
+                nm:'',
+                afazeres:[
+                    {nome: "Lavar louça",},
+                    {nome: "aprender Vue"},
+                    {nome: "ir a igreja"}
+                ],
+                email:"",
+                password:"",
+            },
+            methods:{
+            
+
+            }
+        });
+    </script>
+</body>
+</html>
